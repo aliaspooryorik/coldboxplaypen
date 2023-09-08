@@ -20,24 +20,29 @@
 					<div class="navbar-nav">
 					  <a class="nav-link" href="#event.buildLink( "web:secure" )#">Secure</a>
 					  <a class="nav-link" href="#event.buildLink( "api:v1" )#">API v1</a>
+					  <a class="nav-link" href="#event.buildLink( "broken" )#">app 404</a>
+					  <a class="nav-link" href="#event.buildLink( "web:broken" )#">web 404</a>
+					  <a class="nav-link" href="#event.buildLink( "api:broken" )#">api 404</a>
 
-					  <li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="##" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						  Dev tools
-						</a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#event.buildLink( "route-visualizer" )#">route visualizer</a></li>
-							<li><a class="dropdown-item" href="#event.buildLink( "cbdebugger" )#">cbdebugger</a></li>
-							<li><a class="dropdown-item" href="#event.buildLink( "cbswagger" )#">cbswagger</a></li>
-						</ul>
-					  </li>
+					  <cfif isDevelopment()>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="##" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Dev tools
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#event.buildLink( "route-visualizer" )#">route visualizer</a></li>
+								<li><a class="dropdown-item" href="#event.buildLink( "cbdebugger" )#">cbdebugger</a></li>
+								<li><a class="dropdown-item" href="#event.buildLink( "cbswagger" )#">cbswagger</a></li>
+							</ul>
+						</li>
+						</cfif>
 
 					</div>
 				  </div>
 				</div>
 			  </nav>
 
-			<h1>Hello from web module layout!</h1>
+			<h1>Hello from app layout!</h1>
 			#view()#
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

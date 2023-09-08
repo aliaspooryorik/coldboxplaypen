@@ -53,24 +53,24 @@ component {
 				// Auto load the global security firewall automatically, else you can load it a-la-carte via the `Security` interceptor
 				"autoLoadFirewall"            : true,
 				// The Global validator is an object that will validate the firewall rules and annotations and provide feedback on either authentication or authorization issues.
-				"validator"                   : "JwtAuthValidator@cbsecurity",
+				"validator" : "CBAuthValidator@cbsecurity",
 				// Activate handler/action based annotation security
 				"handlerAnnotationSecurity"   : true,
 				// The global invalid authentication event or URI or URL to go if an invalid authentication occurs
-				"invalidAuthenticationEvent"  : "v1:echo.onAuthenticationFailure",
+				"invalidAuthenticationEvent"  : "web:Main.invalidAuthenticationEvent",
 				// Default Auhtentication Action: override or redirect when a user has not logged in
-				"defaultAuthenticationAction" : "override",
+				"defaultAuthenticationAction" : "redirect",
 				// The global invalid authorization event or URI or URL to go if an invalid authorization occurs
-				"invalidAuthorizationEvent"   : "v1:echo.onAuthorizationFailure",
+				"invalidAuthorizationEvent"   : "web:Main.invalidAuthorizationEvent",
 				// Default Authorization Action: override or redirect when a user does not have enough permissions to access something
-				"defaultAuthorizationAction"  : "override",
+				"defaultAuthorizationAction"  : "redirect",
 				// Firewall database event logs.
 				"logs"                        : {
 					"enabled"    : false,
 					"dsn"        : "",
 					"schema"     : "",
 					"table"      : "cbsecurity_logs",
-					"autoCreate" : true
+					"autoCreate" : false
 				},
 				// Firewall Rules, this can be a struct of detailed configuration
 				// or a simple array of inline rules
@@ -88,53 +88,6 @@ component {
 					// The source can be a json file, an xml file, model, db
 					// Each provider can have it's appropriate properties as well. Please see the documentation for each provider.
 					"provider" : { "source" : "", "properties" : {} }
-				}
-			},
-			/**
-			 * --------------------------------------------------------------------------
-			 * Json Web Tokens
-			 * --------------------------------------------------------------------------
-			 * https://coldbox-security.ortusbooks.com/getting-started/configuration/jwt
-			 *
-			 * Here you configure how JSON Web Tokens are created, validated and stored.
-			 */
-			jwt : {
-				// The issuer authority for the tokens, placed in the `iss` claim
-				issuer                     : "",
-				// The jwt secret encoding key, defaults to getSystemEnv( "JWT_SECRET", "" )
-				// This key is only effective within the `config/Coldbox.cfc`. Specifying within a module does nothing.
-				secretKey                  : getSystemSetting( "JWT_SECRET", "" ),
-				// by default it uses the authorization bearer header, but you can also pass a custom one as well.
-				customAuthHeader           : "x-auth-token",
-				// The expiration in minutes for the jwt tokens
-				expiration                 : 60,
-				// If true, enables refresh tokens, token creation methods will return a struct instead
-				// of just the access token. e.g. { access_token: "", refresh_token : "" }
-				enableRefreshTokens        : false,
-				// The default expiration for refresh tokens, defaults to 30 days
-				refreshExpiration          : 10080,
-				// The Custom header to inspect for refresh tokens
-				customRefreshHeader        : "x-refresh-token",
-				// If enabled, the JWT validator will inspect the request for refresh tokens and expired access tokens
-				// It will then automatically refresh them for you and return them back as
-				// response headers in the same request according to the customRefreshHeader and customAuthHeader
-				enableAutoRefreshValidator : false,
-				// Enable the POST > /cbsecurity/refreshtoken API endpoint
-				enableRefreshEndpoint      : true,
-				// encryption algorithm to use, valid algorithms are: HS256, HS384, and HS512
-				algorithm                  : "HS512",
-				// Which claims neds to be present on the jwt token or `TokenInvalidException` upon verification and decoding
-				requiredClaims             : [],
-				// The token storage settings
-				tokenStorage               : {
-					// enable or not, default is true
-					"enabled"    : true,
-					// A cache key prefix to use when storing the tokens
-					"keyPrefix"  : "cbjwt_",
-					// The driver to use: db, cachebox or a WireBox ID
-					"driver"     : "cachebox",
-					// Driver specific properties
-					"properties" : { cacheName : "default" }
 				}
 			},
 			/**
@@ -219,7 +172,7 @@ component {
 			 */
 			visualizer : {
 				"enabled"      : false,
-				"secured"      : false,
+				"secured"      : true,
 				"securityRule" : {}
 			},
 			/**
@@ -248,4 +201,8 @@ component {
 		};
 	}
 
+	function development( settings ) {
+		// settings.visualizer.enabled = true;
+		// settings.visualizer.secured = false;
+	}
 }
