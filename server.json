@@ -1,0 +1,8 @@
+{
+    "name":"rest-hmvc",
+    "web":{
+        "rewrites":{
+            "enable":true
+        }
+    }
+}
