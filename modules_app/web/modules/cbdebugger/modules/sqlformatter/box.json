@@ -1,0 +1,60 @@
+{
+    "name":"sqlFormatter",
+    "version":"1.1.3+31",
+    "organization":"ortus-solutions",
+    "location":"https://downloads.ortussolutions.com/ortussolutions/coldbox-modules/sqlformatter/1.1.3/sqlformatter-1.1.3.zip",
+    "author":"Michael Born <michael@ortussolutions.com>",
+    "homepage":"https://github.com/coldbox-modules/sqlFormatter",
+    "documentation":"https://github.com/coldbox-modules/sqlFormatter",
+    "repository":{
+        "type":"git",
+        "url":"https://github.com/coldbox-modules/sqlFormatter"
+    },
+    "bugs":"https://github.com/coldbox-modules/sqlFormatter",
+    "shortDescription":"A CFML wrapper for the Vertical Blank sql-formatter java library",
+    "slug":"sqlformatter",
+    "type":"modules",
+    "keywords":[
+        "SQL",
+        "prettifier",
+        "beautify"
+    ],
+    "license":[
+        {
+            "type":"BSD-3",
+            "url":"https://github.com/coldbox-modules/sqlFormatter/blob/master/LICENSE"
+        }
+    ],
+    "contributors":[],
+    "dependencies":{
+        "cbjavaloader":"^2.1.0+5"
+    },
+    "devDependencies":{
+        "coldbox":"6.6.0-snapshot",
+        "testbox":"4.6.0-snapshot"
+    },
+    "ignore":[
+        "**/.*",
+        "test-harness",
+        "/server*.json",
+        "docs/",
+        "LICENSE"
+    ],
+    "scripts":{
+        "build:docs":"docbox generate mapping=`package show slug` excludes=test-harness|ModuleConfig strategy-outputDir=docs strategy-projectTitle=`package show name`",
+        "format":"cfformat run helpers,models,test-harness/tests/,ModuleConfig.cfc --overwrite",
+        "format:watch":"cfformat watch helpers,models,test-harness/tests/,ModuleConfig.cfc ./.cfformat.json",
+        "format:check":"cfformat check helpers,models,test-harness/tests/,ModuleConfig.cfc",
+        "cfpm":"echo '\".engine/adobe2021/WEB-INF/cfusion/bin/cfpm.sh\"' | run",
+        "cfpm:install":"echo '\".engine/adobe2021/WEB-INF/cfusion/bin/cfpm.sh\" install ${1}' | run",
+        "install:2021":"run-script cfpm:install zip,debugger"
+    },
+    "testbox":{
+        "runner":"http://localhost:60299/tests/runner.cfm"
+    },
+    "installPaths":{
+        "coldbox":"test-harness/coldbox/",
+        "testbox":"test-harness/testbox/",
+        "cbjavaloader":"modules/cbjavaloader/"
+    }
+}

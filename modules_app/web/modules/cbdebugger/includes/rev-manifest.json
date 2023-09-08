@@ -1,0 +1,14 @@
+{
+  "includes/js/cbdebugger.js": "/includes/js/cbdebugger.c04a0808b6c2c1442a13.js",
+  "includes/css/cbdebugger.js": "/includes/css/cbdebugger.0bd1d5647c524a1766bc.js",
+  "includes/css/cbdebugger.css": "/includes/css/cbdebugger.8cdab3adbaf1c758905c.css",
+  "includes/js/runtime.js": "/includes/js/runtime.837065ad2e0bff378e37.js",
+  "includes/js/vendor.js": "/includes/js/vendor.1d14c5aa2239e927ab09.js",
+  "includes/images/CBDebugger300.png": "/includes/images/CBDebugger300.png",
+  "includes/images/coldbox_50.png": "/includes/images/coldbox_50.png",
+  "includes/images/coldbox_16.png": "/includes/images/coldbox_16.png",
+  "cbdebugger.js.map": "/includes/js/cbdebugger.c04a0808b6c2c1442a13.js.map",
+  "cbdebugger.css.map": "/includes/css/cbdebugger.8cdab3adbaf1c758905c.css.map",
+  "runtime.js.map": "/includes/js/runtime.837065ad2e0bff378e37.js.map",
+  "vendor.js.map": "/includes/js/vendor.1d14c5aa2239e927ab09.js.map"
+}

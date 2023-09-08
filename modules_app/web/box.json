@@ -1,0 +1,9 @@
+{
+    "devDependencies": {
+        "cbdebugger": "^4.1.0-snapshot"
+    },
+    "dependencies": {},
+    "installPaths": {
+        "cbdebugger": "modules/cbdebugger/"
+    }
+}
