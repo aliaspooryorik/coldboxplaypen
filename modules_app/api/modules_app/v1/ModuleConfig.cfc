@@ -70,7 +70,42 @@ component {
 		parentSettings = {};
 
 		// module settings - stored in modules.name.settings
-		settings = {};
+		settings = {
+			// CB Security Module Settings
+			cbsecurity : {
+				firewall : {
+					// Module Relocation when an invalid access is detected, instead of each rule declaring one.
+					"invalidAuthenticationEvent"  : "v1:Auth.login",
+					// Default Auhtentication Action: override or redirect when a user has not logged in
+					"defaultAuthenticationAction" : "override",
+					// Module override event when an invalid access is detected, instead of each rule declaring one.
+					"invalidAuthorizationEvent"   : "api:Auth.login",
+					// Default invalid action: override or redirect when an invalid access is detected, default is to redirect
+					"defaultAuthorizationAction"  : "override",
+					// The validator to use for this module
+					"validator"                   : "JwtAuthValidator@cbsecurity",
+					// Inline rules
+					// "rules"                       : [ { "secureList" : "api:Secure\.*" } ],
+					// Full rules
+					// or a simple array of inline rules
+					// "rules"                       : {
+					// 	// Use regular expression matching on the rule match types
+					// 	"useRegex" : true,
+					// 	// Force SSL for all relocations
+					// 	"useSSL"   : false,
+					// 	// A collection of default name-value pairs to add to ALL rules
+					// 	// This way you can add global roles, permissions, redirects, etc
+					// 	"defaults" : {},
+					// 	// You can store all your rules in this inline array
+					// 	"inline"   : [],
+					// 	// If you don't store the rules inline, then you can use a provider to load the rules
+					// 	// The source can be a json file, an xml file, model, db
+					// 	// Each provider can have it's appropriate properties as well. Please see the documentation for each provider.
+					// 	"provider" : { "source" : "", "properties" : {} }
+					// }
+				}
+			}
+		};
 
 		// Layout Settings
 		layoutSettings = { defaultLayout : "" };

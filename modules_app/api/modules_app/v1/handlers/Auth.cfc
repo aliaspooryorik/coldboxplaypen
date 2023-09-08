@@ -9,7 +9,7 @@ component extends="coldbox.system.RestHandler" {
 	/**
 	 * Login a user into the application
 	 *
-	 * @x-route          (POST) /api/login
+	 * @x-route          (POST) /api/v1/login
 	 * @requestBody      ~api/v1/auth/login/requestBody.json
 	 * @response-default ~api/v1/auth/login/responses.json##200
 	 * @response-401     ~api/v1/auth/login/responses.json##401
@@ -32,7 +32,7 @@ component extends="coldbox.system.RestHandler" {
 	/**
 	 * Register a new user in the system
 	 *
-	 * @x-route          (POST) /api/register
+	 * @x-route          (POST) /api/v1/register
 	 * @requestBody      ~api/v1/auth/register/requestBody.json
 	 * @response-default ~api/v1/auth/register/responses.json##200
 	 * @response-400     ~api/v1/auth/register/responses.json##400
@@ -61,7 +61,7 @@ component extends="coldbox.system.RestHandler" {
 	/**
 	 * Logout a user
 	 *
-	 * @x-route          (POST) /api/logout
+	 * @x-route          (POST) /api/v1/logout
 	 * @security         bearerAuth,ApiKeyAuth
 	 * @response-default ~api/v1/auth/logout/responses.json##200
 	 * @response-500     ~api/v1/auth/logout/responses.json##500

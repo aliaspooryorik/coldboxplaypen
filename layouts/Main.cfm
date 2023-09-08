@@ -12,35 +12,47 @@
 			<!-- Content here -->
 			<nav class="navbar navbar-expand-lg bg-body-tertiary">
 				<div class="container-fluid">
-				  <a class="navbar-brand" href="#event.buildLink( "" )#">Home</a>
-				  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="##navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				  </button>
-				  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-					<div class="navbar-nav">
-					  <a class="nav-link" href="#event.buildLink( "web:secure" )#">Secure</a>
-					  <a class="nav-link" href="#event.buildLink( "api:v1" )#">API v1</a>
-					  <a class="nav-link" href="#event.buildLink( "broken" )#">app 404</a>
-					  <a class="nav-link" href="#event.buildLink( "web:broken" )#">web 404</a>
-					  <a class="nav-link" href="#event.buildLink( "api:broken" )#">api 404</a>
+					<a class="navbar-brand" href="#event.buildLink( "" )#">Home</a>
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="##navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+						<div class="navbar-nav">
+							<a class="nav-link" href="#event.buildLink( "web:secure" )#">Secure</a>
 
-					  <cfif isDevelopment()>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="##" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Dev tools
-							</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#event.buildLink( "route-visualizer" )#">route visualizer</a></li>
-								<li><a class="dropdown-item" href="#event.buildLink( "cbdebugger" )#">cbdebugger</a></li>
-								<li><a class="dropdown-item" href="#event.buildLink( "cbswagger" )#">cbswagger</a></li>
-							</ul>
-						</li>
-						</cfif>
 
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="##" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									API
+								</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#event.buildLink( "api:v1" )#">v1 module home</a></li>
+									<li><a class="dropdown-item" href="#event.buildLink( "api:v1/echo" )#">v1 echo</a></li>
+									<li><a class="dropdown-item" href="#event.buildLink( "api:v1/whoami" )#">v1 whoami (secure)</a></li>
+								</ul>
+							</li>
+
+							<cfif isDevelopment()>
+
+							</cfif>
+
+							<cfif isDevelopment()>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="##" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									Dev tools
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#event.buildLink( "route-visualizer" )#">route visualizer</a></li>
+										<li><a class="dropdown-item" href="#event.buildLink( "cbdebugger" )#">cbdebugger</a></li>
+										<li><a class="dropdown-item" href="#event.buildLink( "cbswagger" )#">cbswagger</a></li>
+									</ul>
+								</li>
+							</cfif>
+
+						</div>
 					</div>
-				  </div>
 				</div>
-			  </nav>
+			</nav>
 
 			<h1>Hello from app layout!</h1>
 			#view()#
