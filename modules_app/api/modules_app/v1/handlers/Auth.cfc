@@ -71,4 +71,34 @@ component extends="coldbox.system.RestHandler" {
 		event.getResponse().addMessage( "Successfully logged out" )
 	}
 
+	/**
+	 * Logout a user
+	 *
+	 * @x-route          (GET) /api/v1/auth/notauthorised
+	 * @security         bearerAuth,ApiKeyAuth
+	 * @response-default ~api/v1/auth/logout/responses.json##200
+	 * @response-500     ~api/v1/auth/logout/responses.json##500
+	 */
+	function notauthorised( event, rc, prc ){
+		event.getResponse()
+			.setData( { "resource": prc.currentRoutedURL } )
+			.setStatusCode( 403 )
+			.addMessage( "You are not authorised to access the resource" );
+	}
+
+	/**
+	 * Logout a user
+	 *
+	 * @x-route          (GET) /api/v1/auth/notauthenicated
+	 * @security         bearerAuth,ApiKeyAuth
+	 * @response-default ~api/v1/auth/logout/responses.json##200
+	 * @response-500     ~api/v1/auth/logout/responses.json##500
+	 */
+	function notauthenicated( event, rc, prc ){
+		event.getResponse()
+			.setData( { "resource": prc.currentRoutedURL } )
+			.setStatusCode( 403 )
+			.addMessage( "You are not authenticated to access the resource" );
+	}
+
 }

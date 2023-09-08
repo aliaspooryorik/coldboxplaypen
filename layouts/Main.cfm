@@ -18,8 +18,8 @@
 					</button>
 					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 						<div class="navbar-nav">
+							<a class="nav-link" href="#event.buildLink( "web:about" )#">Info</a>
 							<a class="nav-link" href="#event.buildLink( "web:secure" )#">Secure</a>
-
 
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="##" role="button" data-bs-toggle="dropdown" aria-expanded="false">
