@@ -19,7 +19,7 @@
 				  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<div class="navbar-nav">
 					  <a class="nav-link" href="#event.buildLink( "web:secure" )#">Secure</a>
-
+					  <a class="nav-link" href="#event.buildLink( "api:v1" )#">API v1</a>
 
 					  <li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="##" role="button" data-bs-toggle="dropdown" aria-expanded="false">
