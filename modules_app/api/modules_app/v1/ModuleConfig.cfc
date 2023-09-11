@@ -75,7 +75,7 @@ component {
 			cbsecurity : {
 				firewall : {
 					// Module Relocation when an invalid access is detected, instead of each rule declaring one.
-					"invalidAuthenticationEvent"  : "v1:Auth.notauthenicated",
+					"invalidAuthenticationEvent"  : "v1:Auth.notauthenticated",
 					// Default Auhtentication Action: override or redirect when a user has not logged in
 					"defaultAuthenticationAction" : "override",
 					// Module override event when an invalid access is detected, instead of each rule declaring one.

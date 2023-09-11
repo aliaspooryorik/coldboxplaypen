@@ -89,12 +89,12 @@ component extends="coldbox.system.RestHandler" {
 	/**
 	 * Logout a user
 	 *
-	 * @x-route          (GET) /api/v1/auth/notauthenicated
+	 * @x-route          (GET) /api/v1/auth/notauthenticated
 	 * @security         bearerAuth,ApiKeyAuth
 	 * @response-default ~api/v1/auth/logout/responses.json##200
 	 * @response-500     ~api/v1/auth/logout/responses.json##500
 	 */
-	function notauthenicated( event, rc, prc ){
+	function notauthenticated( event, rc, prc ){
 		event.getResponse()
 			.setData( { "resource": prc.currentRoutedURL } )
 			.setStatusCode( 403 )
