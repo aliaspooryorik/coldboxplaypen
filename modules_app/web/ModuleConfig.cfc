@@ -51,7 +51,7 @@ component {
 	// If true, looks for layouts in the parent first, if not found, then in module. Else vice-versa
 	this.layoutParentLookup = true;
 	// Module Entry Point
-	this.entryPoint         = "web";
+	this.entryPoint         = "web"; // we want this module to act as the primary app
 	// Inherit Entry Point
 	this.inheritEntryPoint  = false;
 	// Model Namespace
@@ -67,6 +67,10 @@ component {
 	 * Configure the module
 	 */
 	function configure(){
+		// PARENT APPLICATION ROUTING IF IN TAKE OVER MODE. YOU CAN CUSTOMIZE THIS IF YOU LIKE.
+		// THIS MEANS THAT IF YOU WANT TO EXECUTE PARENT EVENTS YOU NEED TO PREFIX THEM WITH '/parent'
+		parentSESPrefix = "/parent";
+
 		// parent settings
 		parentSettings = {};
 
@@ -239,6 +243,24 @@ component {
 	 * Fired when the module is registered and activated.
 	 */
 	function onLoad(){
+		// Get ses handle
+		var routingService = controller.getRoutingService();
+
+		// get parent routes so we can re-mix them later
+		var parentRoutes = routingService.getRoutes();
+		var customRoutes = parentRoutes.filter( function( item ) {
+			return ( item.pattern NEQ ":handler/" AND item.pattern NEQ ":handler/:action/" );
+		} );
+		routingService.setRoutes( customRoutes );
+
+		// Add parent execution routing if we need them
+		routingService.addRoute( pattern = "#variables.parentSESPrefix#/:handler/:action?" );
+
+		// take over main app and route through this modules handlers
+		routingService.addRoute( pattern="about/:action?", handler="#this.modelNamespace#:about" );
+		routingService.addRoute( pattern="main/:action?", handler="#this.modelNamespace#:main" );
+		routingService.addRoute( pattern="secure/:action?", handler="#this.modelNamespace#:secure" );
+
 	}
 
 	/**

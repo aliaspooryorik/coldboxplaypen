@@ -18,8 +18,8 @@
 					</button>
 					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 						<div class="navbar-nav">
-							<a class="nav-link" href="#event.buildLink( "web:about" )#">Info</a>
-							<a class="nav-link" href="#event.buildLink( "web:secure" )#">Secure</a>
+							<a class="nav-link" href="#event.buildLink( "about" )#">Info</a>
+							<a class="nav-link" href="#event.buildLink( "secure" )#">Secure</a>
 
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="##" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,7 +54,7 @@
 				</div>
 			</nav>
 
-			<h1>Hello from app layout!</h1>
+			<h1>Hello from web: layout!</h1>
 			#view()#
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
